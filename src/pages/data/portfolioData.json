@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "title": "CRM Platform",
+    "description": "Ta'lim markazi uchun kurs, guruh va to'lovlarni boshqarish tizimi.",
+    "image": "/assets/projects/crm.jpg",
+    "technologies": ["React", "Redux Toolkit", "Node.js", "MongoDB"],
+    "category": "Fullstack",
+    "demoLink": "https://crm-demo.vercel.app",
+    "githubLink": "https://github.com/username/crm-project",
+    "details": "Bu loyiha ta'lim markazlari uchun yaratilgan. O'qituvchilar, talabalar va kurslarni boshqarish imkoniyatiga ega bo'lgan to'liq platforma. Login/Logout, CRUD operatsiyalar, role-based access va boshqalarni o'z ichiga oladi."
+  },
+  {
+    "id": 2,
+    "title": "Portfolio Website",
+    "description": "Shaxsiy portfolio websayti - mening loyihalarim va ma'lumotlarim bilan.",
+    "image": "/assets/projects/portfolio.jpg",
+    "technologies": ["React", "Tailwind CSS"],
+    "category": "Frontend",
+    "demoLink": "https://portfolio-demo.vercel.app",
+    "githubLink": "https://github.com/username/portfolio",
+    "details": "Portfolio loyiham mening barcha ishlagan loyihalarim va ma'lumotlarimni jamlaydi. Blog, aloqa formasi va admin panel qismi mavjud."
+  },
+  {
+    "id": 3,
+    "title": "Blog Platform",
+    "description": "Postlar va foydalanuvchilarni boshqarish uchun blog tizimi.",
+    "image": "/assets/projects/blog.jpg",
+    "technologies": ["React", "Express", "MongoDB"],
+    "category": "Fullstack",
+    "demoLink": "https://blog-demo.vercel.app",
+    "githubLink": "https://github.com/username/blog-project",
+    "details": "Foydalanuvchilar post qo'shishi, tahrirlashi va o'chirishi mumkin bo'lgan to'liq blog tizimi. JWT orqali autentifikatsiya va admin panel bilan birga."
+  },
+  {
+    "id": 4,
+    "title": "E-commerce",
+    "description": "Online do'kon uchun e-commerce platforma.",
+    "image": "/assets/projects/ecommerce.jpg",
+    "technologies": ["React", "Redux", "Node.js"],
+    "category": "Frontend",
+    "demoLink": "https://shop-demo.vercel.app",
+    "githubLink": "https://github.com/username/ecommerce",
+    "details": "Mahsulotlar ro'yxati, savat, buyurtmalar va to'lov tizimi bilan to'liq e-commerce platformasi."
+  }
+]

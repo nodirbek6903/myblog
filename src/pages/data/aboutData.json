@@ -1,0 +1,84 @@
+{
+  "title": "Men haqimda",
+  "description": "Salom! Men Nodirbek, frontend va backend yo‘nalishida ishlaydigan full-stack dasturchiman. Asosan React.js, Node.js va MongoDB bilan ishlayman. Tailwind CSS va Redux Toolkit kabi zamonaviy texnologiyalar yordamida qulay va samarali web ilovalar yarataman. Maqsadim — foydalanuvchilar uchun tezkor, xavfsiz va chiroyli web ilovalar yaratish.",
+  "image": "/images/profile.jpg",
+  "info": {
+    "fullName": "Nodirbek Umarov",
+    "email": "nu2913634@gmail.com",
+    "phone": "+998 90 123 45 67",
+    "location": "Farg'ona, O'zbekiston",
+    "role": "Full Stack Developer | Frontend Dasturchi (asosiy yo'nalish)"
+  },
+  "skills": [
+    "HTML5",
+    "CSS3",
+    "JavaScript (ES6+)",
+    "React.js",
+    "Redux Toolkit",
+    "Tailwind CSS",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Git & GitHub",
+    "Vite"
+  ],
+  "services": [
+    {
+      "title": "Frontend Development",
+      "description": "React.js va Tailwind CSS yordamida zamonaviy, responsiv va foydalanuvchilar uchun qulay web ilovalar yarataman."
+    },
+    {
+      "title": "Backend Development",
+      "description": "Node.js va Express.js yordamida kuchli va xavfsiz backend tizimlarini ishlab chiqaman."
+    },
+    {
+      "title": "Database Management",
+      "description": "MongoDB va boshqa ma'lumotlar bazalarini samarali boshqarish va optimallashtirish bo‘yicha tajribam bor."
+    }
+  ],
+  "education": [
+    {
+      "school": "Toshkent Axborot Texnologiyalari Universiteti",
+      "degree": "Bakalavr - Dasturiy Injeneriya",
+      "year": "2022 - Hozirgi kungacha"
+    },
+    {
+      "school": "Rishton Axborot Texnologiyalari Kolleji",
+      "degree": "O'rta maxsus ta'lim - Kompyuter Tizimlari",
+      "year": "2019 - 2022"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Maktab IT bo‘limi",
+      "position": "Full Stack Developer Intern",
+      "duration": "2024 - 3 oy",
+      "description": "CRM tizimi va boshqa ichki loyihalarda frontend va backend qismlarini ishlab chiqdim."
+    },
+    {
+      "company": "Freelance",
+      "position": "Frontend Developer",
+      "duration": "2023 - hozirgi kungacha",
+      "description": "Bir nechta mijozlarga web saytlar va admin panellar ishlab berdim."
+    }
+  ],
+  "achievements": [
+    "Yosh dasturchilar tanlovida 2-o‘rin",
+    "Bir nechta real loyihalarni muvaffaqiyatli deploy qilganman",
+    "Frontend va Backend bo‘yicha sertifikatlar olganman"
+  ],
+  "stats": [
+    { "label": "Yakunlangan Loyihalar", "value": 15 },
+    { "label": "Freelance Mijozlar", "value": 8 },
+    { "label": "O‘qilgan Kurslar", "value": 10 }
+  ],
+  "interests": [
+    "Sayohat",
+    "Dasturlash",
+    "Fotografiya",
+    "O‘qish",
+    "Sport",
+    "Texnologiyalar",
+    "Kino"
+  ]
+}

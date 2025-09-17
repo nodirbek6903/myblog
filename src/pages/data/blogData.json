@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "React bilan Portfolio Saytini Yaratish",
+    "category": "Programming",
+    "date": "2025-09-15",
+    "image": "/images/blog/react-portfolio.jpg",
+    "content": "React va Tailwind CSS yordamida zamonaviy va responsive portfolio sayt yaratish bo'yicha bosqichma-bosqich qo'llanma.",
+    "tags": ["React", "Tailwind", "Frontend", "Portfolio"]
+  },
+  {
+    "id": 2,
+    "title": "Italiyaga Birinchi Sayohatim",
+    "category": "Travel",
+    "date": "2025-08-28",
+    "image": "/images/blog/italy-trip.jpg",
+    "content": "Rim va Florensiya bo'ylab ajoyib sayohatim haqida hikoya. Madaniyat, ovqatlar va tarixiy joylar juda qiziqarli bo'ldi.",
+    "tags": ["Travel", "Italy", "Experience"]
+  },
+  {
+    "id": 3,
+    "title": "Node.js va MongoDB bilan REST API Yaratish",
+    "category": "Programming",
+    "date": "2025-08-12",
+    "image": "/images/blog/node-mongo-api.jpg",
+    "content": "Node.js va MongoDB yordamida backend API yaratishning asosiy qadamlarini o'rganamiz. CRUD amallari va JWT autentifikatsiyasi.",
+    "tags": ["Node.js", "MongoDB", "Backend", "API"]
+  },
+  {
+    "id": 4,
+    "title": "Minimalizm Hayot Tarzi",
+    "category": "Lifestyle",
+    "date": "2025-07-20",
+    "image": "/images/blog/minimalism.jpg",
+    "content": "Hayotni soddalashtirish va minimalizm orqali ortiqcha narsalardan xalos bo'lish haqida shaxsiy tajribam.",
+    "tags": ["Lifestyle", "Minimalism", "Self Improvement"]
+  },
+  {
+    "id": 5,
+    "title": "Frontend Dasturchilar Uchun 10 Tavsiya",
+    "category": "Programming",
+    "date": "2025-06-05",
+    "image": "/images/blog/frontend-tips.jpg",
+    "content": "Frontend dasturchilar uchun samarali ishlash va yaxshi amaliyotlar bo'yicha 10 muhim tavsiya.",
+    "tags": ["Frontend", "React", "Tips"]
+  },
+  {
+    "id": 6,
+    "title": "Farg'ona Vodiyidagi Eng Chiroyli Joylar",
+    "category": "Travel",
+    "date": "2025-05-14",
+    "image": "/images/blog/fergana-valley.jpg",
+    "content": "Farg'ona vodiysida tabiat go'zalligi va madaniyatni o'rganish uchun ajoyib sayohat yo'nalishlari.",
+    "tags": ["Travel", "Uzbekistan", "Nature"]
+  },
+  {
+    "id": 7,
+    "title": "O'zini Rivojlantirish Kitoblari",
+    "category": "Personal",
+    "date": "2025-04-02",
+    "image": "/images/blog/self-development.jpg",
+    "content": "O'zini rivojlantirish va yangi ko'nikmalarni o'rganishga yordam beradigan eng yaxshi kitoblar ro'yxati.",
+    "tags": ["Books", "Self Improvement", "Learning"]
+  },
+  {
+    "id": 8,
+    "title": "JavaScript ES2025 Yangiliklari",
+    "category": "Programming",
+    "date": "2025-03-18",
+    "image": "/images/blog/js-es2025.jpg",
+    "content": "JavaScript ES2025 versiyasida paydo bo'lgan yangi funksiyalar va imkoniyatlarga qisqacha nazar.",
+    "tags": ["JavaScript", "Programming", "Updates"]
+  }
+]
