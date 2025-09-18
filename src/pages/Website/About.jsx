@@ -1,4 +1,4 @@
-import aboutData from "../data/aboutData.json";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Mail,
@@ -8,8 +8,28 @@ import {
   GraduationCap,
   Award,
 } from "lucide-react";
+import {fetchAbout} from "../../redux/aboutSlice"
+import { useSelector,useDispatch } from 'react-redux';
 
 const About = () => {
+
+  const {about,loading} = useSelector(state => state.about)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchAbout())
+  },[dispatch])
+
+  console.log("About data:",about)
+
+    if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
   return (
     <section className="container mx-auto px-4 py-16" id="about">
       {/* Title */}
@@ -20,7 +40,7 @@ const About = () => {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        {aboutData.title}
+        {about?.title}
       </motion.h2>
 
       {/* Main content */}
@@ -34,7 +54,7 @@ const About = () => {
           viewport={{ once: true }}
         >
           <img
-            src={aboutData.image}
+            src={about?.image}
             alt="Profile"
             className="w-64 h-64 object-cover rounded-2xl shadow-lg border-4 border-gray-200"
           />
@@ -48,36 +68,36 @@ const About = () => {
           viewport={{ once: true }}
         >
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">
-            {aboutData.info.fullName}
+            {about?.info?.fullName}
           </h3>
-          <p className="text-gray-600 mb-6">{aboutData.description}</p>
+          <p className="text-gray-600 mb-6">{about?.description}</p>
 
           {/* Personal info */}
           <ul className="space-y-2 text-gray-700">
             <li>
-              <span className="font-semibold">Role:</span> {aboutData.info.role}
+              <span className="font-semibold">Role:</span> {about?.info.role}
             </li>
             <li className="flex items-center space-x-2">
               <Mail className="w-5 h-5 text-blue-600" />
               <a
-                href={`mailto:${aboutData.info.email}`}
+                href={`mailto:${about?.info.email}`}
                 className="text-blue-600 hover:underline"
               >
-                {aboutData.info.email}
+                {about?.info.email}
               </a>
             </li>
             <li className="flex items-center space-x-2">
               <Phone className="w-5 h-5 text-green-600" />
               <a
-                href={`tel:${aboutData.info.phone}`}
+                href={`tel:${about?.info.phone}`}
                 className="text-blue-600 hover:underline"
               >
-                {aboutData.info.phone}
+                {about?.info.phone}
               </a>
             </li>
             <li className="flex items-center space-x-2">
               <MapPin className="w-5 h-5 text-purple-600" />
-              <span>{aboutData.info.location}</span>
+              <span>{about?.info.location}</span>
             </li>
           </ul>
         </motion.div>
@@ -95,7 +115,7 @@ const About = () => {
           Mening ko‘nikmalarim
         </h3>
         <div className="flex flex-wrap justify-center gap-3">
-          {aboutData.skills.map((skill, index) => (
+          {about?.skills.map((skill, index) => (
             <span
               key={index}
               className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm shadow hover:bg-blue-600 transition cursor-pointer"
@@ -118,7 +138,7 @@ const About = () => {
           Xizmatlarim
         </h3>
         <div className="grid md:grid-cols-3 gap-6">
-          {aboutData.services.map((service, index) => (
+          {about?.services.map((service, index) => (
             <div
               key={index}
               className="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition"
@@ -145,16 +165,17 @@ const About = () => {
           Ta'lim
         </h3>
         <div className="space-y-6">
-          {aboutData.education.map((edu, index) => (
+          {about?.education.map((edu, index) => (
             <div
               key={index}
               className="bg-gray-50 border rounded-lg p-6 flex items-start space-x-4 hover:shadow-lg transition"
             >
               <GraduationCap className="w-8 h-8 text-blue-600" />
               <div>
-                <h4 className="text-lg font-bold text-gray-800">{edu.school}</h4>
+                <h4 className="text-lg font-bold text-gray-800">{edu.education_location}</h4>
                 <p className="text-gray-700">{edu.degree}</p>
                 <span className="text-sm text-gray-500">{edu.year}</span>
+                <p className="mt-2 text-gray-600">{edu.description}</p>
               </div>
             </div>
           ))}
@@ -173,7 +194,7 @@ const About = () => {
           Ish tajribam
         </h3>
         <div className="space-y-6">
-          {aboutData.experience.map((exp, index) => (
+          {about?.experience.map((exp, index) => (
             <div
               key={index}
               className="bg-gray-50 border rounded-lg p-6 hover:shadow-lg transition"
@@ -181,7 +202,7 @@ const About = () => {
               <h4 className="text-lg font-bold text-gray-800">{exp.position}</h4>
               <p className="text-gray-700">{exp.company}</p>
               <span className="text-sm text-gray-500">{exp.duration}</span>
-              <p className="mt-2 text-gray-600">{exp.description}</p>
+              <p className="mt-2 text-gray-600">{exp.experience_description}</p>
             </div>
           ))}
         </div>
@@ -199,7 +220,7 @@ const About = () => {
           Yutuqlarim
         </h3>
         <div className="space-y-4">
-          {aboutData.achievements.map((achievement, index) => (
+          {about?.achievements.map((achievement, index) => (
             <div
               key={index}
               className="flex items-center space-x-3 bg-white p-4 rounded-lg shadow hover:shadow-md transition"
@@ -219,7 +240,7 @@ const About = () => {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        {aboutData.stats.map((stat, index) => (
+        {about?.stats.map((stat, index) => (
           <div key={index} className="p-6 bg-blue-50 rounded-xl shadow">
             <h4 className="text-3xl font-bold text-blue-600">{stat.value}+</h4>
             <p className="text-gray-700">{stat.label}</p>
@@ -239,7 +260,7 @@ const About = () => {
           Qiziqishlarim
         </h3>
         <div className="flex flex-wrap justify-center gap-4">
-          {aboutData.interests.map((interest, index) => (
+          {about?.interests.map((interest, index) => (
             <span
               key={index}
               className="bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm shadow"

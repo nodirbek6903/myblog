@@ -1,5 +1,6 @@
-import {Routes, Route} from "react-router-dom"
+import {Routes, Route, Navigate} from "react-router-dom"
 
+// website pages
 import Home from "../pages/Website/Home"
 import About from "../pages/Website/About"
 import Blog from "../pages/Website/Blog"
@@ -16,7 +17,10 @@ import AdminAbout from "../pages/Admin/About"
 import Messages from "../pages/Admin/Messages"
 import Login from "../pages/Admin/Login"
 
+import AdminLayout from "../layouts/AdminLayout"
+
 export default function AppRoutes() {
+    const token = localStorage.getItem("token")
     return (
         <Routes>
             {/* website routes */}
@@ -30,11 +34,17 @@ export default function AppRoutes() {
 
             {/* admin routes */}
             <Route path="/admin/login" element={<Login />} />
+
+            <Route path="/admin" element={ token  ? <AdminLayout /> : <Navigate to="/admin/login" />}>
             <Route path="/admin/dashboard" element={<Dashboard />} />
             <Route path="/admin/posts" element={<Posts />} />
             <Route path="/admin/portfolio" element={<AdminPortfolio />} />
             <Route path="/admin/about" element={<AdminAbout />} />
             <Route path="/admin/messages" element={<Messages />} />
+            </Route>
+
+            {/* deafult redirect */}
+            <Route path="*" element={<Navigate to="/" />} />
         </Routes>
     )
 }

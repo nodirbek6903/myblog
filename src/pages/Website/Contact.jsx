@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle } from "lucide-react";
-import contactData from "../data/contactData.json"; // JSON dan import
+import { Mail, Phone, MapPin, Send} from "lucide-react";
+import { useDispatch,useSelector } from 'react-redux';
+import {fetchAbout} from "../../redux/aboutSlice"
+import {createMessage} from "../../redux/messageSlice"
+import { FaTelegram,FaLinkedin,FaGithub,FaInstagram } from "react-icons/fa";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +15,13 @@ const Contact = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const dispatch = useDispatch()
+  const {about, loading} = useSelector(state => state.about)
+
+
+  useEffect(() => {
+    dispatch(fetchAbout())
+  },[dispatch])
 
   const handleChange = (e) => {
     setFormData({
@@ -20,10 +30,18 @@ const Contact = () => {
     });
   };
 
+    if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("Yuborilgan ma'lumotlar:", formData);
+    dispatch(createMessage(formData))
 
     setIsSubmitted(true);
 
@@ -35,7 +53,7 @@ const Contact = () => {
         phone: "",
         message: ""
       });
-    }, 2000);
+    }, 1000);
   };
 
   return (
@@ -50,7 +68,7 @@ const Contact = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl font-bold text-gray-800">Contact Me</h2>
-          <p className="text-gray-600 mt-2">{contactData.description}</p>
+          <p className="text-gray-600 mt-2">Quyidagi formani to‘ldirib menga bevosita xabar yuborishingiz mumkin. Shuningdek, ijtimoiy tarmoqlar orqali ham bog‘lanishingiz mumkin.</p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
@@ -70,7 +88,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold">Email</h4>
-                  <p className="text-gray-600">{contactData.email}</p>
+                  <p className="text-gray-600">{about?.info?.email}</p>
                 </div>
               </div>
             </div>
@@ -83,7 +101,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold">Telefon</h4>
-                  <p className="text-gray-600">{contactData.phone}</p>
+                  <p className="text-gray-600">{about?.info?.phone}</p>
                 </div>
               </div>
             </div>
@@ -96,7 +114,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold">Manzil</h4>
-                  <p className="text-gray-600">{contactData.address}</p>
+                  <p className="text-gray-600">{about?.info?.location}</p>
                 </div>
               </div>
             </div>
@@ -108,13 +126,13 @@ const Contact = () => {
                 {/* Telegram */}
                 <li>
                   <a
-                    href={contactData.telegram}
+                    href={about?.info?.telegram}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 text-blue-500 hover:underline"
                   >
                     <div className="bg-blue-100 p-2 rounded-full">
-                      <MessageCircle className="w-5 h-5 text-blue-600" />
+                      <FaTelegram className="w-5 h-5 text-blue-600" />
                     </div>
                     <span>Telegram</span>
                   </a>
@@ -123,13 +141,13 @@ const Contact = () => {
                 {/* GitHub */}
                 <li>
                   <a
-                    href={contactData.github}
+                    href={about?.info?.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 text-gray-800 hover:underline"
                   >
                     <div className="bg-gray-100 p-2 rounded-full">
-                      <Github className="w-5 h-5 text-gray-800" />
+                      <FaGithub className="w-5 h-5 text-gray-800" />
                     </div>
                     <span>GitHub</span>
                   </a>
@@ -138,15 +156,29 @@ const Contact = () => {
                 {/* LinkedIn */}
                 <li>
                   <a
-                    href={contactData.linkedin}
+                    href={about?.info?.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 text-blue-700 hover:underline"
                   >
                     <div className="bg-blue-100 p-2 rounded-full">
-                      <Linkedin className="w-5 h-5 text-blue-700" />
+                      <FaLinkedin className="w-5 h-5 text-blue-700" />
                     </div>
                     <span>LinkedIn</span>
+                  </a>
+                </li>
+                {/* instagram */}
+                <li>
+                  <a
+                    href={about?.info?.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-red-500 hover:underline"
+                  >
+                    <div className="bg-blue-100 p-2 rounded-full">
+                      <FaInstagram className="w-5 h-5 text-red-500" />
+                    </div>
+                    <span>Instagram</span>
                   </a>
                 </li>
               </ul>
@@ -216,7 +248,7 @@ const Contact = () => {
 
             <motion.button
               type="submit"
-              className="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition flex items-center justify-center space-x-2"
+              className="w-full bg-blue-600 cursor-pointer text-white py-3 rounded-xl hover:bg-blue-700 transition flex items-center justify-center space-x-2"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
