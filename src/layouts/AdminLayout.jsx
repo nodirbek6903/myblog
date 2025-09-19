@@ -2,6 +2,7 @@ import Sidebar from "../components/UI/SideBar";
 import { Outlet } from "react-router-dom";
 
 const AdminLayout = () => {
+
   return (
     <div className="flex min-h-screen">
       {/* Sidebar */}

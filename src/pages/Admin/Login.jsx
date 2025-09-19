@@ -14,8 +14,17 @@ const Login = () => {
 
   const {  token, loading, error } = useSelector((state) => state.auth);
 
+
+  useEffect(() => {
+    const passed = localStorage.getItem("secretPassed");
+    if(!passed){
+      navigate("/not-found")
+    }
+  },[navigate])
+
   // Agar login muvaffaqiyatli bo‘lsa → dashboardga o‘tkazamiz
   useEffect(() => {
+
     if (token) {
       navigate("/admin/dashboard");
     }

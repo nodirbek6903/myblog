@@ -1,4 +1,5 @@
-import {Routes, Route, Navigate} from "react-router-dom"
+import { useEffect } from "react"
+import {Routes, Route, Navigate, useLocation} from "react-router-dom"
 
 // website pages
 import Home from "../pages/Website/Home"
@@ -8,6 +9,7 @@ import BlogDetail from "../pages/Website/BlogDetail"
 import Portfolio from "../pages/Website/Portfolio"
 import PortfolioDetail from "../pages/Website/PortfolioDetail"
 import Contact from "../pages/Website/Contact"
+import NotFound from "../pages/Website/NotFound"
 
 // admin pages
 import Dashboard from "../pages/Admin/Dashboard"
@@ -17,11 +19,20 @@ import AdminPortfolio from "../pages/Admin/Portfolio"
 import AdminAbout from "../pages/Admin/About"
 import Messages from "../pages/Admin/Messages"
 import Login from "../pages/Admin/Login"
+import SecretAccess from "../pages/SecretAccess/SecretAccess"
 
 import AdminLayout from "../layouts/AdminLayout"
 
 export default function AppRoutes() {
     const token = localStorage.getItem("token")
+    const location = useLocation()
+
+    useEffect(() => {
+    if(!location.pathname.startsWith("/admin")){
+      localStorage.clear()
+      console.log("Admin paneldan chiqildi localstorage tozalandi")
+    }
+  },[location.pathname])
     return (
         <Routes>
             {/* website routes */}
@@ -32,6 +43,8 @@ export default function AppRoutes() {
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/portfolio/:id" element={<PortfolioDetail />} />
             <Route path="/contact" element={<Contact />} />
+
+            <Route path="/secret-access" element={<SecretAccess />} />
 
             {/* admin routes */}
             <Route path="/admin/login" element={<Login />} />
@@ -46,7 +59,7 @@ export default function AppRoutes() {
             </Route>
 
             {/* deafult redirect */}
-            <Route path="*" element={<Navigate to="/" />} />
+            <Route path="*" element={<NotFound/>} />
         </Routes>
     )
 }
