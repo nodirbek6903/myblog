@@ -89,7 +89,7 @@ const Login = () => {
           disabled={loading}
           className="w-full cursor-pointer bg-blue-500 text-white py-2 rounded-lg font-medium text-lg hover:bg-blue-600 transition duration-300 disabled:opacity-50"
         >
-          {loading ? "Kirish..." : "Kirish"}
+          {loading ? "Yuklanmoqda..." : "Kirish"}
         </button>
       </form>
     </div>

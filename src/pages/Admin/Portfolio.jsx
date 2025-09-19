@@ -101,10 +101,12 @@ const Portfolio = () => {
     }
   };
 
-  if(loading){
-    <div className="text-center text-red-500">
-      Yuklanmoqda...
-    </div>
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
   }
 
   /** Portfolio o‘chirish */
@@ -144,7 +146,7 @@ const Portfolio = () => {
             />
 
             {/* Demo & GitHub icons — tepa chap va o'ng tomonda */}
-            <div className="absolute top-3 left-3 flex gap-2">
+            <div className="absolute top-3 bg-white rounded-full left-3 flex gap-2">
               {item.demoLink && (
                 <a
                   href={item.demoLink}
@@ -158,7 +160,7 @@ const Portfolio = () => {
               )}
             </div>
 
-            <div className="absolute top-3 right-3 flex gap-2">
+            <div className="absolute top-3 bg-white rounded-full right-3 flex gap-2">
               {item.githubLink && (
                 <a
                   href={item.githubLink}

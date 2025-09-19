@@ -11,7 +11,8 @@ import Contact from "../pages/Website/Contact"
 
 // admin pages
 import Dashboard from "../pages/Admin/Dashboard"
-import Posts from "../pages/Admin/Posts"
+import Blogs from "../pages/Admin/Blogs"
+import BlogDetails from "../pages/Admin/BlogDetails"
 import AdminPortfolio from "../pages/Admin/Portfolio"
 import AdminAbout from "../pages/Admin/About"
 import Messages from "../pages/Admin/Messages"
@@ -37,7 +38,8 @@ export default function AppRoutes() {
 
             <Route path="/admin" element={ token  ? <AdminLayout /> : <Navigate to="/admin/login" />}>
             <Route path="/admin/dashboard" element={<Dashboard />} />
-            <Route path="/admin/posts" element={<Posts />} />
+            <Route path="/admin/blogs" element={<Blogs />} />
+            <Route path="/admin/blogs/:id" element={<BlogDetails />} />
             <Route path="/admin/portfolio" element={<AdminPortfolio />} />
             <Route path="/admin/about" element={<AdminAbout />} />
             <Route path="/admin/messages" element={<Messages />} />

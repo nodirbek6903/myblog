@@ -1,14 +1,33 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import blogData from "../data/blogData.json"
+// import blogData from "../data/blogData.json"
 import { motion } from 'framer-motion';
+import {useDispatch,useSelector} from "react-redux"
+import {fetchBlogs} from "../../redux/postSlice"
 
-const category = ["Barchasi", ...new Set(blogData.map((item) => item.category))];
 
 const Blog = () => {
+  const dispatch = useDispatch()
+  const {blogs,loading} = useSelector(state => state.blogs)
   const [selectedCategory, setSelectedCategory] = useState("Barchasi")
+  
+  useEffect(() => {
+    dispatch(fetchBlogs())
+  },[dispatch])
 
-  const filteredPosts = selectedCategory === "Barchasi" ? blogData : blogData.filter((post) => post.category === selectedCategory)
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
+  
+  const category = ["Barchasi", ...new Set(blogs.map((item) => item.category))];
+  const filteredPosts = selectedCategory === "Barchasi" ? blogs : blogs.filter((post) => post.category === selectedCategory)
+
+
   return (
     <section className="container mx-auto px-4 py-16">
       {/* Title */}
@@ -45,9 +64,9 @@ const Blog = () => {
 
             {/* blog content */}
             <div className="p-5">
-              <p className="text-sm text-gray-500 mb-2">{post.date}</p>
+              <p className="text-sm text-gray-500 mb-2">{new Date(post.date).toLocaleDateString()}</p>
               <h3 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-blue-600 transition">{post.title}</h3>
-              <p className="text-gray-600 text-sm mb-4 line-clamp-3">{post.content}</p>
+              <p className="text-gray-600 text-sm mb-4 line-clamp-3">{post.description}</p>
 
               {/* tags */}
               <div className="flex flex-wrap gap-2 mb-4">
@@ -62,7 +81,7 @@ const Blog = () => {
 
               {/*  read more link */}
 
-                <Link to={`/blog/${post.id}`}
+                <Link to={`/blog/${post._id}`}
                 className="inline-block text-blue-600 font-medium hover:underline"
                 >
                   Batafsil o'qish →

@@ -34,14 +34,14 @@ const Sidebar = () => {
         </NavLink>
 
         <NavLink
-          to="/admin/posts"
+          to="/admin/blogs"
           className={({ isActive }) =>
             `flex items-center gap-3 px-3 py-2 rounded-lg transition ${
               isActive ? "bg-gray-700" : "hover:bg-gray-700"
             }`
           }
         >
-          <FileText size={20} /> Postlar
+          <FileText size={20} /> Bloglar
         </NavLink>
 
         <NavLink

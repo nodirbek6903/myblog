@@ -5,7 +5,6 @@ import {
   List,
   Card,
   Button,
-  Spin,
   Alert,
   Popconfirm,
   Typography,
@@ -34,6 +33,9 @@ const Messages = () => {
     }
   }
 
+
+  
+
   return (
     <div className='container mx-auto mb-6'>
       <Title level={2} className='text-center mb-6'>
@@ -43,9 +45,9 @@ const Messages = () => {
       {/* loading */}
       {
         loading && (
-          <div className="flex justify-center items-center py-10">
-          <Spin size="large" />
-        </div>
+          <div className="flex items-center justify-center h-screen">
+        <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+      </div>
         )}
 
         {/* Error */}
