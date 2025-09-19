@@ -13,22 +13,39 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const {  token, loading, error } = useSelector((state) => state.auth);
-
-
+  const [checkingSecret, setCheckingSecret] = useState(true);
+  
+  
   useEffect(() => {
     const passed = localStorage.getItem("secretPassed");
     if(!passed){
-      navigate("/not-found")
+      setTimeout(() => {
+        navigate("/not-found")
+      },3)
+    }else{
+      setCheckingSecret(false)
     }
   },[navigate])
 
   // Agar login muvaffaqiyatli bo‘lsa → dashboardga o‘tkazamiz
   useEffect(() => {
-
-    if (token) {
+const passed = localStorage.getItem("secretPassed");
+    if (token && passed) {
       navigate("/admin/dashboard");
     }
   }, [token, navigate]);
+
+
+  if (checkingSecret) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-gradient-to-br from-blue-500 to-purple-600">
+        <div className="flex flex-col items-center space-y-4">
+          <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+          <p className="text-white text-lg">Tekshirilmoqda...</p>
+        </div>
+      </div>
+    );
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
