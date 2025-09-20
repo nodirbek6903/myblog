@@ -19,7 +19,7 @@ const Home = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
       >
-        Men asosan <span className="font-semibold">Frontend dasturchiman</span>, ammo
+        Men asosan <span className="font-semibold">Frontend dasturchiman</span>,
         <span className="font-semibold"> Node.js</span> va <span className="font-semibold">Express.js</span> bilan ham
         amaliyot qilib loyihalar yaratganman. Zamonaviy, qulay va foydalanuvchilar uchun
         samarali web ilovalar ishlab chiqishga ixtisoslashganman. Bu portfolio orqali
